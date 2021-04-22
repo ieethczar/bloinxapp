@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { View, Text } from "react-native";
 
-const Profile = ({ navigation }) => {
+const NewBatche = ({ navigation }) => {
   return (
     <View>
-      <Text>PERFIL</Text>
+      <Text>NewBatche</Text>
     </View>
   );
 };
 
-export default Profile;
+export default NewBatche;

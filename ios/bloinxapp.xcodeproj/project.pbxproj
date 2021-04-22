@@ -114,7 +114,6 @@
 				65F75D1E766E43AAA26B88A9 /* Pods-bloinxapp-bloinxappTests.debug.xcconfig */,
 				5C3C7DB3ECD6CCA140275FBF /* Pods-bloinxapp-bloinxappTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -134,6 +133,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				36A83E78BE90636824FD175C /* Pods */,
+				BA2BF0D943E84AA987A4A2B6 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -148,6 +148,14 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		BA2BF0D943E84AA987A4A2B6 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 

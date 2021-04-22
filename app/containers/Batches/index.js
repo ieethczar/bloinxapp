@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { View, Text } from "react-native";
+import { SafeAreaView, View, Text } from "react-native";
 
 const Batches = ({ navigation }) => {
   return (
-    <View>
-      <Text>asdasd</Text>
-    </View>
+    <SafeAreaView>
+      <Text>
+        TANDAS
+      </Text>
+    </SafeAreaView>
   );
 };
 
