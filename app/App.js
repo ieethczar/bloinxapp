@@ -1,112 +1,104 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { View, Text } from 'react-native';
+import { Icon } from 'react-native-elements'
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import Login from './containers/Login';
+import SignIn from './containers/SingIn';
+import Profile from './containers/Profile';
+import Batches from './containers/Batches';
+import NewBatche from './containers/NewBatche';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import Header from './components/Header';
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{
+            headerShown: false
+          }}
+        />
+
+        <Stack.Screen
+          name="SignIn"
+          component={SignIn}
+          options={{
+            title: 'SignIn'
+          }}
+        />
+
+        <Stack.Screen
+          name="Private"
+          options={{
+            title: 'Private',
+            headerShown: false,
+          }}
+          component={Private}
+        />
+
+        <Stack.Screen
+          name="NewBatche"
+          options={{
+            title: 'NewBatche',
+          }}
+          component={NewBatche}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+const Private = ({ navigation }) => (
+  <View style={{ height: '100%' }}>
+    <Header navigation={navigation} />
+    <Tab.Navigator initialRouteName="Batches">
+      <Tab.Screen
+        name="Batches"
+        component={Batches}
+        options={{
+          tabBarLabel: 'Tandas',
+          tabBarBadge: 3,
+          tabBarIcon: ({ color, size }) => (
+            <Icon
+              name='account-balance-wallet'
+              type='material-icons'
+              color={color}
+              size={size}
+              onPress={() => console.log('BRANCHES')}
+            />
+          ),
+        }}
+      />
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarLabel: 'Cuenta',
+          tabBarBadge: 3,
+          tabBarIcon: ({ color, size }) => (
+            <Icon
+              name='person-pin'
+              type='material-icons'
+              color={color}
+              size={size}
+              onPress={() => console.log('PROFILE')}
+            />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  </View>
+);
 
 export default App;

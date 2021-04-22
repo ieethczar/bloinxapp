@@ -12,6 +12,7 @@ target 'bloinxapp' do
     :hermes_enabled => false
   )
 
+
   target 'bloinxappTests' do
     inherit! :complete
     # Pods for testing
