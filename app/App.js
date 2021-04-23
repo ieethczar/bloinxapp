@@ -33,7 +33,8 @@ const App = () => {
           name="SignIn"
           component={SignIn}
           options={{
-            title: 'SignIn'
+            title: 'SignIn',
+            headerShown: false,
           }}
         />
 
