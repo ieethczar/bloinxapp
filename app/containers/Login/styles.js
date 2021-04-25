@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: theme.backgroundColor,
+    backgroundColor: theme.primaryColorDark,
   },
   text: {
     color: theme.brandColor000,

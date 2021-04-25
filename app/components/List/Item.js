@@ -1,14 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { Card } from 'react-native-elements'
+import { View } from 'react-native';
+import { Card, Text } from 'react-native-elements'
 
-import styles from './styles';
+import styles from './Item.styles';
 
 const Item = ({ title }) => (
-  <Card>
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
+  <Card containerStyle={styles.container}>
+    <Text h4 style={styles.title}>$ {title}</Text>
   </Card>
 );
 

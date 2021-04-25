@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { Text } from 'react-native-elements';
 
@@ -23,11 +23,11 @@ const DATA = [
     title: 'Third Item',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    id: '58694a0f-3da1-dsfs-bd96-145571e29d73',
     title: 'Third Item',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    id: '58694a0f-3da1-471f-bd96-145571e2werw',
     title: 'Third Item',
   },
 ];

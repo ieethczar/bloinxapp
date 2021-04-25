@@ -11,8 +11,7 @@ import SignIn from './containers/SingIn';
 import Profile from './containers/Profile';
 import Batches from './containers/Batches';
 import NewBatche from './containers/NewBatche';
-
-import Header from './components/Header';
+import Header from './containers/Header';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -62,6 +61,7 @@ const App = () => {
 const Private = ({ navigation }) => (
   <View style={{ height: '100%' }}>
     <Header navigation={navigation} />
+
     <Tab.Navigator initialRouteName="Batches">
       <Tab.Screen
         name="Batches"
