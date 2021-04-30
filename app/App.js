@@ -11,6 +11,7 @@ import SignIn from './containers/SingIn';
 import Profile from './containers/Profile';
 import Batches from './containers/Batches';
 import NewBatche from './containers/NewBatche';
+import JoinBatche from './containers/JoinBatche';
 import Header from './containers/Header';
 
 const Stack = createStackNavigator();
@@ -49,9 +50,17 @@ const App = () => {
         <Stack.Screen
           name="NewBatche"
           options={{
-            title: 'NewBatche',
+            title: 'Crear tanda',
           }}
           component={NewBatche}
+        />
+
+        <Stack.Screen
+          name="JoinBatche"
+          options={{
+            title: 'Unirme a tanda',
+          }}
+          component={JoinBatche}
         />
       </Stack.Navigator>
     </NavigationContainer>
