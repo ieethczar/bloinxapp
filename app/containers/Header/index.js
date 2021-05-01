@@ -1,7 +1,9 @@
 import React, { Fragment, useState } from 'react';
-import { Header as OriginalHeader, Icon } from "react-native-elements";
+import { Header as OriginalHeader, Icon, Image } from "react-native-elements";
 
 import Add from './Add';
+import styles from './styles';
+import * as theme from '../../theme';
 
 const Header = ({ navigation }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,27 +22,17 @@ const Header = ({ navigation }) => {
 
       <OriginalHeader
         placement="left"
+        backgroundColor={theme.lightText}
         leftComponent={(
-          <Icon
-            name='menu'
-            type='material-icons'
-            color='#FFFFFF'
-            size={30}
-            onPress={() => console.log('MENU')}
+          <Image
+            style={styles.logo}
+            source={require('../../assets/images/png/logo.png')}
           />
         )}
-        centerComponent={{
-          text: 'Bloinx',
-          style: {
-            fontSize: 22,
-            color: '#FFFFFF'
-          }
-        }}
         rightComponent={(
           <Icon
             name='add'
             type='material-icons'
-            color='#FFFFFF'
             size={30}
             onPress={handleOpenButtonSheet}
           />
