@@ -1,10 +1,14 @@
 import React from 'react';
 import { Input } from 'react-native-elements';
 
-const InputLogin = ({ placeholder, secureTextEntry}) => (
+const InputLogin = ({ placeholder, textContentType, onChangeText, onBlur, value, secureTextEntry }) => (
   <Input
     placeholder={placeholder}
+    textContentType={textContentType}
     secureTextEntry={secureTextEntry}
+    onChangeText={onChangeText}
+    onBlur={onBlur}
+    value={value}
     containerStyle={{
       color: '#FFFFFF',
       paddingRight: 0,
