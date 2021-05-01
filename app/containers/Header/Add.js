@@ -13,7 +13,7 @@ const Add = ({ isOpen, navigation, onClose }) => {
       containerStyle={{ backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)' }}
     >
       <ListItem
-        onPress={() => handleOnPress('NewBatche')}
+        onPress={() => handleOnPress('JoinBatche')}
         bottomDivider
       >
         <Icon
