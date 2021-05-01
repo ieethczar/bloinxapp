@@ -19,11 +19,9 @@ const Login = ({ navigation }) => {
   return (
     <LinearGradient
         colors={[
-          theme.primaryColorDark,
-          theme.primaryColor,
+          theme.selectionColor,
           theme.primaryColorDark,
         ]}
-        start={{ x: 1, y: 0 }}
         style={styles.container}
       >
       <Margin size={36} style={styles.logoContainer}>
@@ -34,8 +32,8 @@ const Login = ({ navigation }) => {
       </Margin>
 
       <Margin size={14}>
-        <Text style={styles.text}>
-          Inicia sesión
+        <Text h4 style={styles.text}>
+          Iniciar sesión
         </Text>
       </Margin>
 

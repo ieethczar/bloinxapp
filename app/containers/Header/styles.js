@@ -3,12 +3,9 @@ import { StyleSheet } from "react-native";
 import * as theme from '../../theme';
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: theme.primaryColor,
-    borderRadius: 10,
-  },
-  title: {
-    color: '#FFFFFF'
+  logo: {
+    width: 100,
+    height: 30,
   },
 });
 
