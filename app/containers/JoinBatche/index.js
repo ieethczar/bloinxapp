@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import InputPic from '../../components/inputs/InputPic';
+import InputPin from '../../components/inputs/InputPin';
 import Button from '../../components/Button';
 import LayoutView from '../../components/layouts/LayoutView';
 
@@ -16,7 +16,7 @@ const JoinBatche = ({ navigation }) => {
         </Fragment>
       )}
     >
-      <InputPic label='Elige tu posición' />
+      <InputPin label='Elige tu posición' />
     </LayoutView>
   );
 };
