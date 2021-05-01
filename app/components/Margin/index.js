@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View } from "react-native";
 
-const Margin = ({ size, children }) => {
+const Margin = ({ size, children, style }) => {
   const styles = StyleSheet.create(typeof(size) === 'number' ? {
     container: {
       marginBottom: size,
@@ -17,7 +17,7 @@ const Margin = ({ size, children }) => {
   });
 
   return (
-    <View style={styles.container}>
+    <View style={StyleSheet.compose(styles.container, style)}>
       {children}
     </View>
   )
@@ -25,6 +25,7 @@ const Margin = ({ size, children }) => {
 
 Margin.defaultProps = {
   size: 20,
+  style: {},
 }
 
 Margin.propTypes = {

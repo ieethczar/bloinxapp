@@ -11,8 +11,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: theme.primaryColorDark,
   },
+  logoContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 200,
+    height: 80,
+  },
   text: {
-    color: theme.brandColor000,
+    color: theme.lightText,
     textAlign: 'center',
   }
 });
