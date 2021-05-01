@@ -4,8 +4,17 @@ import { Input } from 'react-native-elements';
 
 import styles from './styles';
 
-const InputPic = () => {
+const InputPin = () => {
   const [ inputValue, setInputValue ] = useState('');
+
+  const inputRefs = [
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+  ];
 
   const props = {
     containerStyle: styles.field,
@@ -33,4 +42,4 @@ const InputPic = () => {
   );
 };
 
-export default InputPic;
+export default InputPin;
