@@ -1,34 +1,39 @@
-import React, { useState } from 'react';
-import { View } from 'react-native';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
 import { Text, Slider } from 'react-native-elements';
 
+import * as theme from '../../../theme';
 import styles from './styles';
 
-const InputSlider = ({ label, value = 0 }) => {
-  const [ initialValue, setInitialValue ] = useState(value);
+const InputSlider = ({ label, value, onChange, min, max, inputLabelStyle }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
       <View style={styles.internalContainer}>
         <Slider
           style={styles.slider}
-          maximumValue={25}
-          minimumValue={3}
+          maximumValue={max}
+          minimumValue={min}
           thumbStyle={{
             height: 15,
             width: 15,
-            backgroundColor: '#888888'
+            backgroundColor: theme.selectionColor,
           }}
-          onValueChange={setInitialValue}
+          onValueChange={onChange}
           step={1}
-          value={initialValue}
+          value={value}
         />
-        <Text style={styles.sliderInfo}>
-          {initialValue}
+        <Text style={StyleSheet.compose(styles.sliderInfo, inputLabelStyle)}>
+          {value}
         </Text>
       </View>
     </View>
   )
+};
+
+InputSlider.defaultProps = {
+  min: 0,
+  max: 1,
 };
 
 export default InputSlider;

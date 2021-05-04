@@ -1,15 +1,15 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, SafeAreaView } from 'react-native';
 import { Text } from 'react-native-elements';
 
 import styles from './styles';
 
 const LayoutView = ({ title, description, children, options }) => (
-  <ScrollView style={styles.scroll}>
-    <View style={styles.container}>
+  <SafeAreaView>
+    <View style={styles.save}>
       <View style={styles.header}>
-        <Text h2>{title}</Text>
-        <Text>{description}</Text>
+        <Text h4 style={styles.text}>{title}</Text>
+        <Text style={styles.text}>{description}</Text>
       </View>
       <View style={styles.content}>
         {children}
@@ -18,7 +18,7 @@ const LayoutView = ({ title, description, children, options }) => (
         {options}
       </View>
     </View>
-  </ScrollView>
+  </SafeAreaView>
 );
 
 export default LayoutView;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View } from 'react-native';
 import { Text, Divider } from 'react-native-elements';
 
 import Label from '../../components/Label';
@@ -10,7 +10,6 @@ import styles from './styles';
 import History from './History';
 import Resumen from './Resumen';
 import Payments from './Payments';
-import { Fragment } from 'react';
 
 const renderSection = (tabSelected) => {
   switch (tabSelected) {

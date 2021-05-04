@@ -52,6 +52,7 @@ const App = () => {
           name="NewBatche"
           options={{
             title: 'Crear tanda',
+            headerShown: false,
           }}
           component={NewBatche}
         />

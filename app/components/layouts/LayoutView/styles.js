@@ -1,20 +1,26 @@
 import { StyleSheet } from "react-native";
 
+import * as theme from '../../../theme';
+
 const styles = StyleSheet.create({
-  scroll: {
+  save: {
+    padding: 15,
     height: '100%',
-  },
-  container: {
-    flex: 1,
-    minHeight: '100%',
-    padding: 20,
+    display: 'flex',
+    justifyContent: 'center',
+    backgroundColor: theme.primaryColorDark,
   },
   header: {
-    marginBottom: 20,
+    paddingBottom: 20,
   },
   content: {
-    flex: 1,
+    display: 'flex',
   },
+  text: {
+    marginBottom: 10,
+    textAlign: 'center',
+    color: theme.lightText,
+  }
 });
 
 export default styles;

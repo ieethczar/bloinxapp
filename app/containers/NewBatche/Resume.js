@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
+import { ButtonGroup, Text } from 'react-native-elements';
 
-import InputText from '../../components/inputs/InputText';
+import Label from '../../components/Label';
 import Button from '../../components/Button';
 import LayoutView from '../../components/layouts/LayoutView';
 
-const Resume = ({ navigation }) => {
+const Resume = ({ navigation, route: { params }}) => {
   return (
     <LayoutView
       title='Resumen'
@@ -16,7 +17,39 @@ const Resume = ({ navigation }) => {
         </Fragment>
       )}
     >
-      <InputText label='Elige tu posición' />
+      <Text>Elige tu posición</Text>
+      <ButtonGroup
+        buttons={['1','2','3','4','5','6','7','8','9','10']}
+        selectedIndex={0}
+        onPress={() => {}}
+      />
+
+      <Text>Elige tu posición</Text>
+
+      <Label
+        label='Administrador'
+        value={''}
+      />
+      <Label
+        label='Nombre de la tanda'
+        value={params.name}
+      />
+      <Label
+        label='Estilo de tanda'
+        value={params.isPublic ? 'Public' : 'Privada'}
+      />
+      <Label
+        label='No. de participantes'
+        value={params.participants}
+      />
+      <Label
+        label='Periodicidad'
+        value={params.periodicity}
+      />
+      <Label
+        label='Monto por ronda'
+        value={params.amount}
+      />
     </LayoutView>
   );
 }
