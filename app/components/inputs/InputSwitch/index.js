@@ -1,15 +1,18 @@
 import React from 'react';
 
-import { View, Switch } from 'react-native';
+import { View, Switch, StyleSheet } from 'react-native';
 import { Text } from 'react-native-elements';
 
 import styles from './styles';
 
 const InputSwith = ({
+  inputKey,
   label,
   primaryOptionLabel,
   secondaryOptionLabel,
-  value
+  value,
+  onChange,
+  optionLabelStyles,
 }) => {
   if (!primaryOptionLabel) {
     return (
@@ -21,6 +24,7 @@ const InputSwith = ({
         }
         <Switch
           value={value}
+          onValueChange={onChange}
         />
       </View>
     );
@@ -34,15 +38,16 @@ const InputSwith = ({
         )
       }
       <View style={styles.input}>
-        <Text style={styles.inputOptional}>
+        <Text style={StyleSheet.compose(styles.inputOptional, optionLabelStyles)}>
           {primaryOptionLabel}
         </Text>
         <Switch
           value={value}
+          onValueChange={onChange}
         />
         {
           secondaryOptionLabel && (
-            <Text style={styles.inputOptional}>
+            <Text style={StyleSheet.compose(styles.inputOptional, optionLabelStyles)}>
               {secondaryOptionLabel}
             </Text>
           )

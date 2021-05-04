@@ -16,8 +16,6 @@ const styles = StyleSheet.create({
     color: '#8F9CB3',
   },
   container: {
-    marginRight: 10,
-    marginLeft: 10,
     marginBottom: 25,
   },
   label: {
