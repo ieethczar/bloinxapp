@@ -9,9 +9,11 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "lint": "eslint .",
-    "ios:cesar": "react-native run-ios --devise 'iPhone de Cesar'"
+    "ios:cesar": "react-native run-ios --devise 'iPhone de Cesar'",
+    "account": "node utils/createAccount.js"
   },
   "dependencies": {
+    "@celo/contractkit": "^1.2.0",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-picker/picker": "^1.15.0",
     "@react-navigation/bottom-tabs": "^5.11.9",
@@ -19,6 +21,7 @@
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.4",
     "formik": "^2.2.6",
+    "dotenv": "^8.2.0",
     "moment": "^2.29.1",
     "react": "17.0.1",
     "react-native": "0.64.0",
@@ -32,7 +35,8 @@
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.1.1",
     "react-native-svg": "^12.1.1",
-    "react-native-vector-icons": "^8.1.0"
+    "react-native-vector-icons": "^8.1.0",
+    "web3": "^1.3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
