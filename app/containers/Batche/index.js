@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Text, Divider } from 'react-native-elements';
 
+import InputLabel from '../../components/inputs/InputLabel';
 import Label from '../../components/Label';
 import Tabs from '../../components/Tabs';
 import BatcheChart from './BatcheChart';
@@ -30,32 +31,48 @@ const Batche = ({ name, realizedPayments, totalPayments, amount, currency }) => 
   return (
     <View>
       <View style={styles.containerResume}>
-        <View style={styles.containerResumeTitles}>
-          <Text h4 style={styles.containerResumeTitlesName}>
+        <View style={styles.containerResumeTitle}>
+          <Text h4>
             {name}
           </Text>
 
-          <Divider />
-
-          <View style={styles.containerResumeTitlesAmounts}>
-            <Label
-              label='Pagos'
-              style={styles.textLabel}
-              value={`${realizedPayments} de ${totalPayments}`}
-            />
-            <Label
-              label='Monto'
-              style={styles.textLabel}
-              value={`${amount.toFixed(2)} ${currency}`}
-            />
-          </View>
+          <BatcheChart
+            totalAmount={25000}
+            recaudedAmount={10000}
+            realizedPayments={4}
+            totalPayments={5}
+          />
         </View>
-        <BatcheChart
-          totalAmount={25000}
-          recaudedAmount={10000}
-          realizedPayments={4}
-          totalPayments={5}
-        />
+
+        <Divider />
+        
+        <View style={styles.containerResumeTitleAmounts}>
+          <InputLabel
+            label='Mi turno'
+            style={styles.textLabelMin}
+            value={12}
+          />
+          <InputLabel
+            label='Proximo turno a pagar'
+            style={styles.textLabel}
+            value={5}
+          />
+        </View>
+
+        <Divider />
+        
+        <View style={styles.containerResumeTitleAmounts}>
+          <InputLabel
+            label='Pagos'
+            style={styles.textLabelMin}
+            value={`${realizedPayments} de ${totalPayments}`}
+          />
+          <InputLabel
+            label='Monto recaudado'
+            style={styles.textLabel}
+            value={`${amount.toFixed(2)} ${currency}`}
+          />
+        </View>
       </View>
 
       <Divider />

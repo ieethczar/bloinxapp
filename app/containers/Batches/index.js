@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, View, FlatList } from 'react-native';
-import { Text, Image } from 'react-native-elements';
+import { Text, Image, Divider } from 'react-native-elements';
 
 import Margin from '../../components/Margin';
 import Button from '../../components/Button';
@@ -10,32 +10,23 @@ import styles from './styles';
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    name: 'Tanda de la chamba',
-    realizedPayments: 0,
-    totalPyaments: 10,
-    amount: 10,
+    name: 'Tanda de la chanba que esta muy grande',
+    realizedPayments: 3,
+    totalPyaments: 11,
+    amount: 12343.30,
     currency: 'MXN',
   },
+];
+
+const DATAOTHER = [
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    name: 'Tanda ',
+    realizedPayments: 3,
+    totalPyaments: 11,
+    amount: 12343.30,
+    currency: 'MXN',
   },
-  // {
-  //   id: '58694a0f-3da1-471f-bd96-145571e29d72',
-  //   title: 'Third Item',
-  // },
-  // {
-  //   id: '58694a0f-3da1-471f-bd96-145571e29d22',
-  //   title: 'Third Item',
-  // },
-  // {
-  //   id: '58694a0f-3da1-dsfs-bd96-145571e29d73',
-  //   title: 'Third Item',
-  // },
-  // {
-  //   id: '58694a0f-3da1-471f-bd96-145571e2werw',
-  //   title: 'Third Item',
-  // },
 ];
 
 const Batches = ({ navigation }) => {
@@ -63,8 +54,28 @@ const Batches = ({ navigation }) => {
 
   return (
     <SafeAreaView>
+      <Text style={styles.title}>Mis tandas</Text>
       <FlatList
         data={DATA}
+        style={styles.flatList}
+        renderItem={({ item }) => (
+          <Item
+            key={item.id}
+            name={item.name}
+            realizedPayments={item.realizedPayments}
+            totalPayments={item.totalPyaments}
+            amount={item.amount}
+            currency={item.currency}
+            onPress={() => navigation.navigate('Batche', item.id)}
+          />
+        )}
+        keyExtractor={item => item.id}
+      />
+
+      <Divider />
+      <Text style={styles.title}>Soy participante</Text>
+      <FlatList
+        data={DATAOTHER}
         style={styles.flatList}
         renderItem={({ item }) => (
           <Item

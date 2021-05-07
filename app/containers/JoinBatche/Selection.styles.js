@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
 
+import * as theme from '../../theme';
+
 const styles = StyleSheet.create({
-  container: {
-    padding: 15,
+  bigNumber: {
+    fontSize: 100,
+    textAlign: 'center',
   },
-  text: {
-    marginBottom: 10,
-  }
 });
 
 export default styles;

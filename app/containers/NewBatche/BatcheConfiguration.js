@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 
 import InputText from '../../components/inputs/InputText';
 import InputSlider from '../../components/inputs/InputSlider';
+import InputSelect from '../../components/inputs/InputSelect';
 import Button from '../../components/Button';
 import LayoutView from '../../components/layouts/LayoutView';
 
@@ -42,26 +43,33 @@ const BatcheConfiguration = ({ navigation, route: { params }}) => {
         label='No. de participantes'
         onChange={setParticipants}
         value={participants}
-        inputLabelStyle={styles.optionLabelStyles}
         min={3}
         max={10}
       />
-      
 
-      <Text>Periodicidad</Text>
-      <ButtonGroup
-        buttons={['Semanal','Quincenal','Mensual']}
-        selectedIndex={0}
-        onPress={() => {}}
-        // vertical
+      <InputSelect
+        label='Periodicidad'
+        placeholder='Seleccione periodicidad'
+        onValueChange={(a) => console.log(a)}
+        options={[
+          { label: 'Semanal', value: 'Semanal' },
+          { label: 'Quincenal', value: 'Quicenal' },
+          { label: 'Mensual', value: 'Mensual' },
+        ]}
       />
 
-      <Text>Monto del periodo</Text>
-      <ButtonGroup
-        buttons={['100','250','500','750','1000','2000']}
-        selectedIndex={0}
-        onPress={() => {}}
-        // vertical
+      <InputSelect
+        label='Monto del periodo'
+        placeholder='Seleccione periodicidad'
+        onValueChange={(a) => console.log(a)}
+        options={[
+          { label: '$ 100.00', value: 100 },
+          { label: '$ 250.00', value: 250 },
+          { label: '$ 500.00', value: 500 },
+          { label: '$ 750.00', value: 750 },
+          { label: '$ 1,000.00', value: 1000 },
+          { label: '$ 2,000.00', value: 2000 },
+        ]}
       />
     </LayoutView>
   );

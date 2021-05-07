@@ -1,5 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 
+import * as theme from '../../../theme';
+
 const screenWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
@@ -23,8 +25,15 @@ const styles = StyleSheet.create({
   },
   sliderInfo: {
     width: 30,
-    textAlign: 'right',
-    fontSize: 16,
+    height: 30,
+    textAlign: 'center',
+    fontSize: 20,
+    borderColor: '#888',
+    borderWidth: 1,
+    borderRadius: 15,
+    paddingTop: 2,
+    color: theme.selectionColor,
+    fontWeight: 'bold'
   },
 });
 

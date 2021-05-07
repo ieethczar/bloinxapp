@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { TouchableOpacity } from 'react-native';
-import { Card, Avatar, Text } from 'react-native-elements'
+import { Card, Avatar, Text, Divider } from 'react-native-elements'
 
 import styles from './Item.styles';
 
@@ -17,17 +17,21 @@ const Item = ({
     <Card containerStyle={styles.card}>
       <View style={styles.cardContainer}>
         <View style={styles.graph}>
+          <Text style={styles.graphText}>Mi turno</Text>
           <Avatar
             rounded
-            source={{
-              uri:
-                'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-            }}
+            title={12}
+            size='medium'
+            avatarStyle={styles.turn}
+            titleStyle={styles.turnText}
           />
         </View>
         <View style={styles.cardData}>
-          <Text style={styles.name}>{name}</Text>
-          <Text>Pagos realizados: {realizedPayments} de {totalPayments}</Text>
+          <Text style={styles.name}>{name && name.slice(0,20)}</Text>
+          <Text style={styles.payments}>Pagos realizados: {realizedPayments} de {totalPayments}</Text>
+          <Divider />
+          <Text style={styles.nextPayments}>Próximo pago a:</Text>
+          <Text style={styles.nextUser}>Rogelio Romero turno 5</Text>
         </View>
         <View>
           <Text style={styles.amount}>${amount.toFixed(2)}</Text>

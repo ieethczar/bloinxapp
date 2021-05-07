@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 10,
     color: theme.grayText,
+  },
+  rating: {
+    paddingTop: 5,
   }
 });
 
