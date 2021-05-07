@@ -1,34 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { Text } from 'react-native-elements';
 
-import Margin from '../../components/Margin';
-import Label from '../../components/Label';
+import Button from '../../components/Button';
 
 import styles from './Payments.styles';
 
 const Payments = () => (
-  <View>
-    <Margin size={[20, 0, 0, 0]}>
-      <Text h4 style={styles.containerResumeTitlesName}>Detalles</Text>
-    </Margin>
-    <View style={styles.containerResumeTitlesAmounts}>
-      <Label
-        label='Inicio de la tanda'
-        style={styles.textLabel}
-      />
-      <Label
-        label='Pagos realizados'
-        style={styles.textLabel}
-      />
-      <Label
-        label='Último dia de pago'
-        style={styles.textLabel}
-      />
-      <Label
-        label='Monto a pagar'
-        style={styles.textLabel}
-      />
-    </View>
+  <View style={styles.container}>
+    <Text h4 style={styles.text}>Pagar tanda</Text>
+    <Text style={styles.text}>Recuerda que debes tener fondos suficientes en tu cartera digital para poder proceder a realizar el pago correspondiente de tu tanda.</Text>
+    <Button
+      title="Pagar"
+    />
   </View>
 );
 

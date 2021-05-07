@@ -1,29 +1,20 @@
-import * as React from 'react';
-import { Text, View, Image } from 'react-native-elements';
-import LinearGradient from 'react-native-linear-gradient'
+import React, { Fragment } from 'react';
+import { View } from 'react-native';
+import { Text, Image } from 'react-native-elements';
 import { Formik } from 'formik';
 
 import InputLogin from '../../components/inputs/InputLogin';
 import Button from '../../components/Button';
 import Margin from '../../components/Margin';
 import styles from './styles';
-import * as theme from '../../theme';
-import { Fragment } from 'react';
 
 const Login = ({ navigation }) => {
-  
   const handleOnSubmit = (values) => {
     navigation.navigate('Private');
   }
 
   return (
-    <LinearGradient
-        colors={[
-          theme.selectionColor,
-          theme.primaryColorDark,
-        ]}
-        style={styles.container}
-      >
+    <View style={styles.container}>
       <Margin size={36} style={styles.logoContainer}>
         <Image
           style={styles.logo}
@@ -83,7 +74,7 @@ const Login = ({ navigation }) => {
           onPress={() => navigation.navigate('SignIn')}
         />
       </Margin>
-    </LinearGradient>
+    </View>
   );
 };
 

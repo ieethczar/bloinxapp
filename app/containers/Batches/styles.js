@@ -18,7 +18,11 @@ const styles = StyleSheet.create({
     color: theme.grayText
   },
   flatList: {
-    height: '100%',
+    marginBottom: 15,
+  },
+  title: {
+    marginLeft: 15,
+    marginTop: 15, 
   }
 });
 

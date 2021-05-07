@@ -3,27 +3,27 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   containerResume: {
     padding: 15,
-    paddingBottom: 0,
+  },
+  containerResumeTitle: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
-  containerResumeTitles: {
-    flex: 1,
-    justifyContent: 'flex-end',
-  },
-  containerResumeTitlesName: {
-    marginBottom: 10,
-  },
-  containerResumeTitlesAmounts: {
+  containerResumeTitleAmounts: {
     display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    justifyContent: 'space-between',
   },
   textLabel: {
     marginTop: 10,
-    width: '50%',
+    width: '60%',
+    paddingRight: 10,
+  },
+  textLabelMin: {
+    marginTop: 10,
+    width: '40%',
+    marginRight: 10,
   }
 });
 

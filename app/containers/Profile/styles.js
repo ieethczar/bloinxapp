@@ -9,22 +9,25 @@ const styles = StyleSheet.create({
   containerProfile: {
     display: 'flex',
     flexDirection: 'row',
-    borderColor: 'red',
-    borderWidth: 1,
     width: '100%',
   },
   containerProfileName: {
-    borderColor: 'blue',
-    borderWidth: 1,
     width: '70%',
+    display: 'flex',
+    justifyContent: 'center',
   },
   containerProfileImage: {
-    borderColor: 'green',
-    borderWidth: 1,
     width: '30%',
     display: 'flex',
     justifyContent: 'center'
   },
+  textCenter: {
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  digitalWallet: {
+    marginTop: 20,
+  }
 });
 
 export default styles;

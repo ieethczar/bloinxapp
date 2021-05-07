@@ -4,11 +4,12 @@ import * as theme from '../../../theme';
 
 const styles = StyleSheet.create({
   save: {
-    padding: 15,
     height: '100%',
     display: 'flex',
     justifyContent: 'center',
-    backgroundColor: theme.primaryColorDark,
+  },
+  container: {
+    padding: 15,
   },
   header: {
     paddingBottom: 20,
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   text: {
     marginBottom: 10,
     textAlign: 'center',
-    color: theme.lightText,
+    color: theme.grayText,
   }
 });
 

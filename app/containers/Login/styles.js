@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: theme.primaryColorDark,
   },
   logoContainer: {
     justifyContent: 'center',
@@ -20,7 +19,7 @@ const styles = StyleSheet.create({
     height: 80,
   },
   text: {
-    color: theme.lightText,
+    color: theme.grayText,
     textAlign: 'center',
   }
 });

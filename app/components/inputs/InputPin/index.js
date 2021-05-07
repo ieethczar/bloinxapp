@@ -1,43 +1,27 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { Input } from 'react-native-elements';
+import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 
 import styles from './styles';
 
-const InputPin = () => {
-  const [ inputValue, setInputValue ] = useState('');
-
-  const inputRefs = [
-    React.createRef(),
-    React.createRef(),
-    React.createRef(),
-    React.createRef(),
-    React.createRef(),
-    React.createRef(),
-  ];
-
-  const props = {
-    containerStyle: styles.field,
-    inputContainerStyle: styles.inputContainer,
-    inputStyle: styles.input,
-    keyboardType: 'number-pad',
-    maxLength: 1,
-    onChangeText: (value) => {
-      const newValue = `${inputValue}${value}`;
-      setInputValue(newValue);
-    },
-  };
-
+const InputPin = ({ onComplete }) => {
+  const [ code, setCode ] = useState();
   return (
     <View style={styles.container}>
-      {
-        inputRefs.map((k, index) => (
-          <Input
-            {...props}
-            ref={r => inputRefs[index] === r}
-          />
-        ))
-      }
+      <SmoothPinCodeInput
+        cellSize={50}
+        codeLength={6}
+        ref={this.pinInput}
+        value={code}
+        onTextChange={code => setCode(code)}
+        onFulfill={this._checkCode}
+        onBackspace={this._focusePrevInput}
+        restrictToNumbers
+        containerStyle={styles.code}
+        cellStyle={styles.cellStyle}
+        cellStyleFocused={styles.cellStyleFocused}
+        onFulfill={onComplete}
+      />
     </View>
   );
 };

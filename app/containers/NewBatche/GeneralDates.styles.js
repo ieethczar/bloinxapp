@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   optionLabelStyles: {
-    color: theme.lightText,
-    borderColor: theme.lightText,
+    color: theme.grayText,
+    borderColor: theme.grayText,
     borderWidth: 1,
     borderRadius: 20,
     textAlign: 'center',

@@ -1,11 +1,17 @@
-import React, { Fragment } from 'react';
-import { ButtonGroup, Text } from 'react-native-elements';
+import React, { Fragment, useState } from 'react';
 
-import Label from '../../components/Label';
+import InputLabel from '../../components/inputs/InputLabel';
+import InputButtonOptions from '../../components/inputs/InputButtonOptions';
 import Button from '../../components/Button';
 import LayoutView from '../../components/layouts/LayoutView';
 
+const generatePositions = (length = 0) => {
+  return Array.from({length}, (_, i) => (i + 1).toString());
+}
+
 const Resume = ({ navigation, route: { params }}) => {
+  const [positionValue, setPositionValue] = useState('1');
+
   return (
     <LayoutView
       title='Resumen'
@@ -17,36 +23,33 @@ const Resume = ({ navigation, route: { params }}) => {
         </Fragment>
       )}
     >
-      <Text>Elige tu posición</Text>
-      <ButtonGroup
-        buttons={['1','2','3','4','5','6','7','8','9','10']}
-        selectedIndex={0}
-        onPress={() => {}}
+      <InputButtonOptions 
+        label="Elige tu posición"
+        value={positionValue}
+        options={generatePositions(params.participants)}
+        onPress={setPositionValue}
       />
-
-      <Text>Elige tu posición</Text>
-
-      <Label
+      <InputLabel
         label='Administrador'
         value={''}
       />
-      <Label
+      <InputLabel
         label='Nombre de la tanda'
         value={params.name}
       />
-      <Label
+      <InputLabel
         label='Estilo de tanda'
         value={params.isPublic ? 'Public' : 'Privada'}
       />
-      <Label
+      <InputLabel
         label='No. de participantes'
         value={params.participants}
       />
-      <Label
+      <InputLabel
         label='Periodicidad'
         value={params.periodicity}
       />
-      <Label
+      <InputLabel
         label='Monto por ronda'
         value={params.amount}
       />

@@ -1,29 +1,21 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 
-const screenWidth = Dimensions.get('window').width;
+import * as theme from '../../../theme';
 
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flexDirection: 'row',
+    alignItems: 'center',
   },
-  field: {
-    width: '16.66%',
-    paddingLeft: 0,
-    paddingRight: 0,
+  code: {
+    paddingBottom: 20,
   },
-  inputContainer: {
-    marginLeft: 5,
-    marginRight: 5,
+  cellStyle: {
+    borderColor: '#CCC',
+    borderWidth: 1,
   },
-  input: {
-    paddingTop: 10,
-    paddingBottom: 10,
-    borderTopStartRadius: 5,
-    borderTopEndRadius: 5,
-    backgroundColor: '#DDD',
-    fontSize: 30,
-    textAlign: 'center',
+  cellStyleFocused: {
+    borderColor: theme.selectionColor,
   }
 });
 

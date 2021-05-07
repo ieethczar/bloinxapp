@@ -5,8 +5,8 @@ import { Text } from 'react-native-elements';
 import styles from './styles';
 
 const LayoutView = ({ title, description, children, options }) => (
-  <SafeAreaView>
-    <View style={styles.save}>
+  <SafeAreaView style={styles.save}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <Text h4 style={styles.text}>{title}</Text>
         <Text style={styles.text}>{description}</Text>

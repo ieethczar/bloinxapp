@@ -1,23 +1,40 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import InputPin from '../../components/inputs/InputPin';
-import Button from '../../components/Button';
-import LayoutView from '../../components/layouts/LayoutView';
+import Pin from './Pin';
+import Selection from './Selection';
+import Complete from './Complete';
+
+const Stack = createStackNavigator();
 
 const JoinBatche = ({ navigation }) => {
   return (
-    <LayoutView
-      title='Unirme a tanda'
-      description='Unete a una tanda con el código de invitado.'
-      options={(
-        <Fragment>
-          <Button title='Entrar a tanda' onPress={() => navigation.navigate('Invitations')}/>
-          <Button title='Regresar' type='clear' onPress={navigation.goBack}/>
-        </Fragment>
-      )}
-    >
-      <InputPin label='Elige tu posición' />
-    </LayoutView>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Pin"
+        component={Pin}
+        options={{
+          title: 'Ingrese Pin',
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Selection"
+        component={Selection}
+        options={{
+          title: 'Selecciona turno',
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Complete"
+        component={Complete}
+        options={{
+          title: 'Completado',
+          headerShown: false,
+        }}
+      />
+    </Stack.Navigator>
   );
 };
 

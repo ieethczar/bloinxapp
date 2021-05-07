@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, SafeAreaView, TouchableHighlight } from 'react-native';
+import { View, SafeAreaView, TouchableOpacity } from 'react-native';
 import { Input, Button, Overlay, Icon, Text, Divider } from 'react-native-elements';
 import CalendarPicker from 'react-native-calendar-picker';
 import moment from 'moment';
@@ -24,17 +24,16 @@ const InputCalendar = ({ label, onChangeText, value, inputContainerStyle, inputS
 
   return (
     <View>
-      <TouchableHighlight onPressIn={handleOpen}>
-        <Input
-          label={label}
-          value={!date ? 'Selecciona fecha' : date}
-          containerStyle={styles.input}
-          inputContainerStyle={inputContainerStyle}
-          inputStyle={inputStyle}
-          labelStyle={labelStyle}
-          disabled
-        />
-      </TouchableHighlight>
+      <Input
+        label={label}
+        value={!date ? 'Selecciona fecha' : date}
+        containerStyle={styles.input}
+        inputContainerStyle={inputContainerStyle}
+        inputStyle={inputStyle}
+        labelStyle={labelStyle}
+        onPressIn={handleOpen}
+        showSoftInputOnFocus={false}
+      />
 
       <Overlay
         isVisible={visible}

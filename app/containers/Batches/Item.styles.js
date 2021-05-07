@@ -14,11 +14,23 @@ const styles = StyleSheet.create({
   },
   graph: {
     paddingRight: 10,
+    display: 'flex',
+    alignItems: 'center',
+  },
+  turn: {
+    borderWidth: 1,
+    borderColor: theme.secondaryColorDark,
+  },
+  turnText: {
+    color: theme.secondaryColorDark,
+  },
+  graphText: {
+    marginBottom: 10,
   },
   cardData: {
     flex: 1,
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     flexWrap: 'wrap',
   },
   cardAmount: {
@@ -27,7 +39,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   name: {
-    fontSize: 18,
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   amount: {
     fontSize: 18,
@@ -35,6 +48,17 @@ const styles = StyleSheet.create({
   },
   currency: {
     textAlign: 'right',
+  },
+  payments: {
+    width: '100%',
+    paddingBottom: 8,
+  },
+  nextPayments: {
+    paddingTop: 5,
+  },
+  nextUser: {
+    fontSize: 14,
+    fontWeight: 'bold',
   }
 });
 
