@@ -1,9 +1,9 @@
 import 'react-native-gesture-handler';
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { Icon } from 'react-native-elements'
 
 import Login from './containers/Login';
@@ -15,10 +15,16 @@ import JoinBatche from './containers/JoinBatche';
 import Batche from './containers/Batche';
 import Header from './containers/Header';
 
+import Implement from './Implement';
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+  useEffect(() => {
+    Implement();
+  },[]);
+
   return (
     <NavigationContainer>
       <Stack.Navigator>

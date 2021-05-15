@@ -6,6 +6,8 @@ require('dotenv').config();
 const web3 = new Web3(process.env.REST_URL);
 const client = ContractKit.newKitFromWeb3(web3);
 
+client.addAccount(process.env.PRIVATE_KEY);
+
 module.exports = {
   // * $ truffle test --network <network-name>
 
