@@ -1,5 +1,5 @@
-const Factory = artifacts.require('./main.sol');
+const SavingGroups = artifacts.require('./SavingGroups.sol');
 
 module.exports = function (deployer) {
-  deployer.deploy(Factory);
+  deployer.deploy(SavingGroups, 5, 5, 3);
 };
