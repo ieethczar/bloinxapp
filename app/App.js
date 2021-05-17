@@ -15,14 +15,15 @@ import JoinBatche from './containers/JoinBatche';
 import Batche from './containers/Batche';
 import Header from './containers/Header';
 
-import Implement from './Implement';
+import MyContext from './context';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+  console.log('--->> COntext', {MyContext});
   useEffect(() => {
-    Implement();
+    console.log('--->> COntext', {MyContext});
   },[]);
 
   return (
