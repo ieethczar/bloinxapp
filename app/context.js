@@ -8,10 +8,6 @@ import {
 import contractImplement from './Implement';
 import Web3 from 'web3';
 
-const account = '';
-
-const myExample = () => console.log('QUE ONDA');
-
 const setUserWallet = async() => {
   const requestId = 'login';
   const dappName = 'Bloinx';
@@ -28,9 +24,7 @@ const registerUser = async (userTurn) => {
     .send({from: account, value: Web3.utils.toWei('1', 'ether')});
 };
 
-const MyContext = React.createContext({
-  myExample,
+export default {
   setUserWallet,
-});
-
-export default MyContext;
+  registerUser,
+};
