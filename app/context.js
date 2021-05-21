@@ -1,19 +1,15 @@
-import React from 'react';
-import {
-  waitForAccountAuth,
-  requestAccountAddress,
-  waitForSignedTxs,
-  requestTxSig,
-} from '@celo/dappkit';
-import contractImplement from './Implement';
+import { waitForAccountAuth, requestAccountAddress, waitForSignedTxs, requestTxSig } from '@celo/dappkit';
+import * as Linking from 'expo-linking'
 import Web3 from 'web3';
 
-const setUserWallet = async() => {
+import contractImplement from './Implement';
+
+const setUserWallet = async () => {
   const requestId = 'login';
   const dappName = 'Bloinx';
+  const callback = Linking.makeUrl('/Private');
 
-  requestAccountAddress({requestId, dappName});
-
+  requestAccountAddress({requestId, dappName, callback});
   const dappKitRes = await waitForAccountAuth(requestId);
   console.log('---->> ', dappKitRes);
 };
