@@ -1,9 +1,9 @@
-import 'react-native-gesture-handler';
+import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
+import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View } from 'react-native';
 import { Icon } from 'react-native-elements'
 
 import Login from './containers/Login';
@@ -15,15 +15,14 @@ import JoinBatche from './containers/JoinBatche';
 import Batche from './containers/Batche';
 import Header from './containers/Header';
 
-import MyContext from './context';
-
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const App = () => {
-  console.log('--->> COntext', {MyContext});
+import MyContext from './context';
+
+export default function App(props) {
   useEffect(() => {
-    console.log('--->> COntext', {MyContext});
+    MyContext.setUserWallet();
   },[]);
 
   return (
@@ -82,7 +81,7 @@ const App = () => {
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
+}
 
 const Private = ({ navigation }) => (
   <View style={{ height: '100%' }}>
@@ -128,4 +127,11 @@ const Private = ({ navigation }) => (
   </View>
 );
 
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
