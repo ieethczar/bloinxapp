@@ -1,6 +1,7 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet } from "react-native";
-import { Button as Btn } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 
 const styles = StyleSheet.create({
   button: {
@@ -9,8 +10,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const Button = ({ title, type, onPress }) => (
-  <Btn
+const Btn = ({ title, type, onPress }) => (
+  <Button
     type={type}
     buttonStyle={styles.button}
     title={title}
@@ -18,4 +19,10 @@ const Button = ({ title, type, onPress }) => (
   />
 );
 
-export default Button;
+Btn.propTypes = {
+  title: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+};
+
+export default Btn;

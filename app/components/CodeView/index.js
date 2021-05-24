@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import { Text, Avatar } from 'react-native-elements';
 
@@ -11,8 +12,9 @@ const avatarOptions = {
 };
 
 const CodeView = ({ code }) => {
-  const codeSplit = code.split('');
-  if(code.length !== 6) {
+  const codeSplit = code ? code.split(''): '';
+
+  if(!code || code.length !== 6) {
     new Error('El componente espera una cadena de 6 digitos.');
     return (
       <View style={styles.container}>
@@ -20,6 +22,7 @@ const CodeView = ({ code }) => {
       </View>
     );
   }
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Código de tanda</Text>
@@ -52,5 +55,9 @@ const CodeView = ({ code }) => {
     </View>
   );
 }
+
+CodeView.propTypes = {
+  code: PropTypes.string,
+};
 
 export default CodeView;

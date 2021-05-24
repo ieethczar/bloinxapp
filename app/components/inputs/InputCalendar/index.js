@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, SafeAreaView, TouchableOpacity } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, SafeAreaView } from 'react-native';
 import { Input, Button, Overlay, Icon, Text, Divider } from 'react-native-elements';
 import CalendarPicker from 'react-native-calendar-picker';
 import moment from 'moment';
@@ -44,14 +45,14 @@ const InputCalendar = ({ label, onChangeText, value, inputContainerStyle, inputS
             <Button
               containerStyle={styles.buttonClose}
               titleStyle={styles.titleStyle}
-              type='clear'
-              title='cerrar'
+              type="clear"
+              title="cerrar"
               onPress={handleClose}
               iconRight
               icon={
                 <Icon
-                  name='close'
-                  type='material-icons'
+                  name="close"
+                  type="material-icons"
                   size={30}
                 />
               }
@@ -113,6 +114,15 @@ const InputCalendar = ({ label, onChangeText, value, inputContainerStyle, inputS
       </Overlay>
     </View>
   );
+};
+
+InputCalendar.propTypes = {
+  label: PropTypes.string.isRequired,
+  onChangeText: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  inputContainerStyle: PropTypes.object,
+  inputStyle: PropTypes.object,
+  labelStyle: PropTypes.object,
 };
 
 export default InputCalendar;

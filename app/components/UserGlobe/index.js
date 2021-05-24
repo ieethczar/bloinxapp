@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
 import { Avatar, AirbnbRating, Text } from 'react-native-elements';
 
@@ -30,6 +31,15 @@ UserGlobe.defaultProps = {
   size: 'small',
   name: '',
   image: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
+};
+
+UserGlobe.propTypes = {
+  size: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  image: PropTypes.string,
+  onPress: PropTypes.func,
+  rating: PropTypes.number,
+  ratingSize: PropTypes.number,
 };
 
 export default UserGlobe;
