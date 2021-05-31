@@ -8,9 +8,11 @@ import Button from '../../components/Button';
 import Margin from '../../components/Margin';
 import styles from './styles';
 
-const Login = ({ navigation }) => {
+const Login = ({ navigation, login }) => {
+  console.log('login -->> ', login);
   const handleOnSubmit = (values) => {
     navigation.navigate('Private');
+    login();
   }
 
   return (

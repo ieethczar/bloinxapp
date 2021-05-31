@@ -3,7 +3,7 @@ import {newKitFromWeb3} from '@celo/contractkit';
 import SavingGroups from './contracts/SavingGroups.json';
 
 const contractImplement = async () => {
-  const web3 = new Web3('');
+  const web3 = new Web3('https://celo-alfajores--rpc.datahub.figment.io/apikey/e92580cb6bd38d37b0c235b74b1e4528/');
   const client = newKitFromWeb3(web3);
   // const account = web3.eth.accounts.privateKeyToAccount('');
   // client.addAccount(account.privateKey);

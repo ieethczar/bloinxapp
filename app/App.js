@@ -1,10 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon } from 'react-native-elements'
+import Web3 from 'web3';
+import {newKitFromWeb3} from '@celo/contractkit';
+import { waitForAccountAuth, requestAccountAddress, waitForSignedTxs, requestTxSig } from '@celo/dappkit';
+import * as Linking from 'expo-linking'
 
 import Login from './containers/Login';
 import SignIn from './containers/SingIn';
@@ -14,16 +18,45 @@ import NewBatche from './containers/NewBatche';
 import JoinBatche from './containers/JoinBatche';
 import Batche from './containers/Batche';
 import Header from './containers/Header';
+import SavingGroups from './contracts/SavingGroups.json';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-import MyContext from './context';
+// import MyContext from './context';
 
 export default function App(props) {
+  const [client, setClient] = useState(undefined);
+  const [contractInstance, setContractInstance] = useState(undefined);
+
   useEffect(() => {
-    MyContext.setUserWallet();
-  },[]);
+    const contractImplement = async () => {
+      const web3 = new Web3('https://celo-alfajores--rpc.datahub.figment.io/apikey/e92580cb6bd38d37b0c235b74b1e4528/');
+      const client = newKitFromWeb3(web3);
+    
+      const networkId = await web3.eth.net.getId();
+      const deployedNetwork = SavingGroups.networks[networkId];
+      const instance = new web3.eth.Contract(
+        SavingGroups.abi,
+        deployedNetwork && deployedNetwork.address,
+      );
+
+      setClient(client);
+      setContractInstance(instance);
+    };
+    contractImplement();
+  })
+
+  const login = async () => {
+    const requestId = 'Login';
+    const dappName = 'Bloinx';
+    const callback = Linking.makeUrl('/Private');
+
+    requestAccountAddress({requestId, dappName, callback});
+    const dappKitRes = await waitForAccountAuth(requestId);
+    console.log('---->> ', dappKitRes);
+    client.defaultAccount = dappKitRes.address;
+  }
 
   return (
     <NavigationContainer>
@@ -32,7 +65,8 @@ export default function App(props) {
           name="Login"
           component={Login}
           options={{
-            headerShown: false
+            headerShown: false,
+            login: login
           }}
         />
 
