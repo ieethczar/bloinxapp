@@ -26,8 +26,8 @@ const Tab = createBottomTabNavigator();
 // import MyContext from './context';
 
 export default function App(props) {
-  const [client, setClient] = useState(undefined);
-  const [contractInstance, setContractInstance] = useState(undefined);
+  const [client, setClient] = useState(null);
+  const [contractInstance, setContractInstance] = useState({});
 
   useEffect(() => {
     const contractImplement = async () => {
@@ -45,28 +45,42 @@ export default function App(props) {
       setContractInstance(instance);
     };
     contractImplement();
-  })
+  }, []);
 
-  const login = async () => {
-    const requestId = 'Login';
-    const dappName = 'Bloinx';
-    const callback = Linking.makeUrl('/Private');
+  const handleLogin = async () => {
+    try {
+      console.log('--------------------------------')
+      const requestId = 'login';
+      const dappName = 'Bloinx';
+      // const callback = Linking.createURL('/');
+      // console.log({ callback });
 
-    requestAccountAddress({requestId, dappName, callback});
-    const dappKitRes = await waitForAccountAuth(requestId);
-    console.log('---->> ', dappKitRes);
-    client.defaultAccount = dappKitRes.address;
+      console.log('---->> 0');
+      requestAccountAddress({requestId, dappName, callback: 'https://google.com' });
+      console.log('---->> 1');
+      const dappKitRes = await waitForAccountAuth(requestId);
+      client.defaultAccount = dappKitRes.address;
+      const stableToken = await client.contracts.getStableToken();
+      const cUSDBalanceBig = await stableToken.balanceOf(client.defaultAccount);
+      const cUSDBalance = cUSDBalanceBig.toString();
+
+      console.log({ cUSDBalance });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
-  return (
+  return ( 
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
           name="Login"
           component={Login}
           options={{
-            headerShown: false,
-            login: login
+            headerShown: false
+          }}
+          initialParams={{
+            onLogin: handleLogin,
           }}
         />
 

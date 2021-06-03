@@ -8,11 +8,13 @@ import Button from '../../components/Button';
 import Margin from '../../components/Margin';
 import styles from './styles';
 
-const Login = ({ navigation, login }) => {
-  console.log('login -->> ', login);
+const Login = (props) => {
+  const { navigation, route: { params: { onLogin } } } = props;
+  
   const handleOnSubmit = (values) => {
-    navigation.navigate('Private');
-    login();
+    console.log(values);
+    onLogin();
+    // navigation.navigate('Private');
   }
 
   return (
